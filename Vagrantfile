@@ -43,7 +43,8 @@ Vagrant.configure("2") do |config|
   # information on available options.
 
   # Enable provisioning with a shell script
-  # config.vm.provision :shell, :path => "bootstrap.sh"
+  # This allows us to bootstrap the latest version of chef before it is run
+  config.vm.provision :shell, :path => "bootstrap.sh"
 
   # Enable provisioning with chef solo, specifying a cookbooks path, roles
   # path, and data_bags path (all relative to this Vagrantfile), and adding
@@ -57,7 +58,6 @@ Vagrant.configure("2") do |config|
     chef.add_recipe "postgresql"
     chef.add_recipe "python"
     chef.add_recipe "python_django_dev"
-
   end
 
   # Enable provisioning with chef server, specifying the chef server URL,
