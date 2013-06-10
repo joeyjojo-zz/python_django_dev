@@ -11,3 +11,9 @@ Dependencies
 
 - Fabric
 - Fabric tools
+
+Caveats
+=======
+
+I haven't put all the cookbooks that are necessary into the repo. You will have
+to do that yourself.
