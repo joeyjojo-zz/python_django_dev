@@ -50,12 +50,26 @@ Vagrant.configure("2") do |config|
   # path, and data_bags path (all relative to this Vagrantfile), and adding
   # some recipes and/or roles.
   config.vm.provision :chef_solo do |chef|
+      chef.json = {
+        postgresql: {
+            password: {
+                postgres: 'your_password'
+            },
+            pg_hba: [
+                {type: 'local', db: 'all', user: 'django_login', addr: nil, method: 'trust'},
+        #{type: 'host', db: 'all', user: 'all', addr: '127.0.0.1/32', method: 'trust'},
+        #{type: 'host', db: 'all', user: 'all', addr: '::1/128', method: 'trust'}
+            ]
+        },
+      }
+
     chef.cookbooks_path = "cookbooks"
     chef.add_recipe "apt"
     chef.add_recipe "build-essential"
     chef.add_recipe "nginx"
     chef.add_recipe "git"
     chef.add_recipe "postgresql"
+    chef.add_recipe "postgresql::server"
     chef.add_recipe "python"
     chef.add_recipe "python_django_dev"
   end
