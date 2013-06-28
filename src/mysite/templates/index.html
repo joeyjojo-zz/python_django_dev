@@ -1,11 +1,32 @@
-<!doctype html>{% load gears %}
-<html lang="en">
+<!DOCTYPE html>{% load gears %}
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>Example app</title>
-  {% css_asset_tag 'css/style.css' %}
+<meta charset="utf-8">
+<title>Ember Starter Kit</title>
+
+    {% css_asset_tag 'css/style.css' %}
+
 </head>
 <body>
-  <h1>Example app</h1>
+
+    {% verbatim %}
+    <script type="text/x-handlebars">
+        <h2>Welcome to Ember.js</h2>
+        {{outlet}}
+    </script>
+    {% endverbatim %}
+
+    {% verbatim %}
+    <script type="text/x-handlebars" data-template-name="index">
+        <ul>
+        {{#each item in model}}
+          <li>{{item}}</li>
+        {{/each}}
+        </ul>
+    </script>
+    {% endverbatim %}
+
+    {% js_asset_tag 'js/app.js' %}
+
 </body>
 </html>

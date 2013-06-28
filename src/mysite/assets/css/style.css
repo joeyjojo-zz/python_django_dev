@@ -1,1 +1,6 @@
-//= require polls
+//= require normalize
+
+/* Put your CSS here */
+html, body {
+    margin: 20px;
+}
