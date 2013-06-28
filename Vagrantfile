@@ -53,13 +53,13 @@ Vagrant.configure("2") do |config|
       chef.json = {
         postgresql: {
             password: {
-                postgres: 'your_password'
+                postgres: 'password'
             },
             pg_hba: [
-                {type: 'local', db: 'all', user: 'django_login', addr: nil, method: 'trust'},
-        #{type: 'host', db: 'all', user: 'all', addr: '127.0.0.1/32', method: 'trust'},
-        #{type: 'host', db: 'all', user: 'all', addr: '::1/128', method: 'trust'}
-            ]
+                {type: 'local', db: 'all', user: 'all', addr: nil, method: 'trust'},
+                {type: 'host', db: 'all', user: 'all', addr: '127.0.0.1/32', method: 'trust'},
+                {type: 'host', db: 'all', user: 'all', addr: '::1/128', method: 'trust'}
+            ],
         },
       }
 
@@ -72,6 +72,7 @@ Vagrant.configure("2") do |config|
     chef.add_recipe "postgresql::server"
     chef.add_recipe "python"
     chef.add_recipe "python_django_dev"
+
   end
 
   # Enable provisioning with chef server, specifying the chef server URL,
