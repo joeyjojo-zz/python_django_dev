@@ -1,4 +1,8 @@
+import os
+
 # Django settings for mysite project.
+
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -111,6 +115,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(PROJECT_ROOT, 'templates'),
 )
 
 INSTALLED_APPS = (
@@ -125,8 +130,22 @@ INSTALLED_APPS = (
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    # 3rd party
+    'django_gears',
+    # custom
     'polls',
 )
+
+
+GEARS_ROOT = os.path.join(PROJECT_ROOT, 'static')
+
+GEARS_DIRS = (
+    os.path.join(PROJECT_ROOT, 'assets'),
+)
+
+#GEARS_COMPILERS = {
+#    '.styl': 'gears_stylus.StylusCompiler',
+#}
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
