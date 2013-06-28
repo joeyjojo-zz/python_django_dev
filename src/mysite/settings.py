@@ -144,7 +144,7 @@ GEARS_DIRS = (
 )
 
 #GEARS_COMPILERS = {
-#    '.styl': 'gears_stylus.StylusCompiler',
+#    '.handlebars': 'gears_handlebars.HandlebarsCompiler',
 #}
 
 # A sample logging configuration. The only tangible logging
