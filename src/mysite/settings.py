@@ -104,6 +104,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 ROOT_URLCONF = 'mysite.urls'
@@ -132,6 +133,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     # 3rd party
     'django_gears',
+    'debug_toolbar',
     # custom
     'polls',
 )
@@ -142,6 +144,8 @@ GEARS_ROOT = os.path.join(PROJECT_ROOT, 'static')
 GEARS_DIRS = (
     os.path.join(PROJECT_ROOT, 'assets'),
 )
+
+INTERNAL_IPS = ('127.0.0.1',)
 
 #GEARS_COMPILERS = {
 #    '.handlebars': 'gears_handlebars.HandlebarsCompiler',
