@@ -16,15 +16,11 @@
     </script>
     {% endverbatim %}
 
-    {% verbatim %}
-    <script type="text/x-handlebars" data-template-name="index">
-        <ul>
-        {{#each item in model}}
-          <li>{{item}}</li>
-        {{/each}}
-        </ul>
-    </script>
-    {% endverbatim %}
+
+
+    {% for file in filelist %}
+        {% include file %}
+    {% endfor %}
 
     {% js_asset_tag 'js/app.js' %}
 
