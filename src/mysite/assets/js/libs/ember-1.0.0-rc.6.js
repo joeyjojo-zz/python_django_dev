@@ -2,6 +2,8 @@
 // Last commit: 720acd8 (2013-06-22 09:19:49 -0700)
 
 
+
+
 (function() {
 /*global __fail__*/
 
@@ -2130,7 +2132,8 @@ function listenersFor(obj, eventName) {
   if (!actions) { return ret; }
 
   for (var i = 0, l = actions.length; i < l; i++) {
-    var target = actions[i][0],
+
+      var target = actions[i][0],
         method = actions[i][1];
     ret.push([target, method]);
   }
