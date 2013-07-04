@@ -11,16 +11,15 @@
 
     {% verbatim %}
     <script type="text/x-handlebars">
-        <h2>Welcome to Ember.js</h2>
+        <h2>Testing compilation of templates for Ember in Django!</h2>
         {{outlet}}
     </script>
     {% endverbatim %}
 
-
-
     {% for file in filelist %}
         {% include file %}
     {% endfor %}
+
 
     {% js_asset_tag 'js/app.js' %}
 

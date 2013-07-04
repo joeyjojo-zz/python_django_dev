@@ -44,7 +44,14 @@ def handlebarsfilelist():
 
 
 class MainAppView(TemplateView):
-    filelist = handlebarsfilelist()
+    filelist = None
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super(MainAppView, self).get_context_data(**kwargs)
+        # Add in the publisher
+        context['filelist'] = self.filelist
+        return context
 
 urlpatterns = patterns('',
     # Examples:
@@ -58,6 +65,6 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^$', MainAppView.as_view(
         template_name='index.html',
-        filelist = handlebarsfilelist()
+        filelist = handlebarsfilelist(),
     )),
 )
